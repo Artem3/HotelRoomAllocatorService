@@ -39,8 +39,8 @@ class RoomAllocationControllerTest {
                         .content(allocationRequestJson))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.initialPremiumRooms").exists())
-                .andExpect(jsonPath("$.premiumRevenue").exists())
                 .andExpect(jsonPath("$.initialEconomyRooms").exists())
-                .andExpect(jsonPath("$.economyRevenue").exists());
+                .andExpect(jsonPath("$.usagePremium").exists())
+                .andExpect(jsonPath("$.usageEconomy").exists());
     }
 }

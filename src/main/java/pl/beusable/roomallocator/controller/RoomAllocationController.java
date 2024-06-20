@@ -1,5 +1,7 @@
 package pl.beusable.roomallocator.controller;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +23,10 @@ public class RoomAllocationController {
     @PostMapping("/allocateRooms")
     public AllocationResponseDTO calculateRoomAllocation(@RequestBody AllocationRequestDTO request) {
         return allocationService.allocate(request);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
     }
 }

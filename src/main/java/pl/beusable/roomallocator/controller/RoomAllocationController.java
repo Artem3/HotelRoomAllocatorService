@@ -1,5 +1,6 @@
 package pl.beusable.roomallocator.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,7 @@ public class RoomAllocationController {
     }
 
     @PostMapping("/allocateRooms")
-    public AllocationResponseDTO calculateRoomAllocation(@RequestBody AllocationRequestDTO request) {
+    public AllocationResponseDTO calculateRoomAllocation(@RequestBody @Valid AllocationRequestDTO request) {
         return allocationService.allocate(request);
     }
 

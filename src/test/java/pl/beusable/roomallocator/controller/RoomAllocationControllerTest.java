@@ -16,7 +16,7 @@ import pl.beusable.roomallocator.dto.AllocationRequestDTO;
 import pl.beusable.roomallocator.dto.AllocationResponseDTO;
 import pl.beusable.roomallocator.service.RoomAllocationService;
 
-@WebMvcTest(RoomAllocationController.class)
+@WebMvcTest
 class RoomAllocationControllerTest {
 
     @Autowired
